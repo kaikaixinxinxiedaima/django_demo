@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django Web</title>
+
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<div class="container page-header">
+    <div class="col-md-9" role="main">
+        <h1>
+            {{ article.title }}
+        </h1>
+    </div>
+    <div class="col-md-3" role="complementary">
+        <h4>
+            <a href="/blog/index" title="返回主页">go home</a>
+        </h4>
+    </div>
+</div>
+<div class="container body-main">
+    <div>
+        <p>
+            {{ article.content }}
+        </p>
+    </div>
+</div>
+<div>
+    <nav aria-label="...">
+        <ul class="pager">
+            {% if pre_article.article_id != article.article_id%}
+                <li><a href="/blog/detail/{{ pre_article.article_id}}">上一篇：{{ pre_article.title}}</a></li>
+            {% endif %}
+            {% if next_article.article_id != article.article_id%}
+                <li><a href="/blog/detail/{{ next_article.article_id}}">下一篇：{{ next_article.title}}</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+
+</body>
+</html>

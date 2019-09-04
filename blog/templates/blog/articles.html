@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table border="1">
+        {% for article in article_list %}
+            <tr>
+                <td>{{article.title}}</td>
+                <td>{{article.brief_content}}</td>
+                <td>{{article.publish_date}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
